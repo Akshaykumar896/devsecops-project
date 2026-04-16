@@ -2,16 +2,17 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone') {
+        stage('Build Docker Image') {
             steps {
-                echo 'Cloning repository...'
+                echo 'Building Docker image...'
+                sh 'docker build -t devsecops-app .'
             }
         }
 
-        stage('Build') {
+        stage('Run Container') {
             steps {
-                echo 'Running Python app...'
-                bat  ' "C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python311\\python.exe" app.py'
+                echo 'Running Docker container...'
+                sh 'docker run --rm devsecops-app'
             }
         }
     }
