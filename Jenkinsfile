@@ -10,7 +10,11 @@ pipeline {
 
         stage('Scan Image (Trivy)') {
             steps {
-                sh 'trivy image devsecops-app'
+                sh '''
+                docker run --rm \
+                -v /var/run/docker.sock:/var/run/docker.sock \
+                aquasec/trivy image devsecops-app
+                '''
             }
         }
 
