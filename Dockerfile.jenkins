@@ -2,11 +2,13 @@ FROM jenkins/jenkins:lts
 
 USER root
 
-# Install Docker CLI
 RUN apt-get update && \
-    apt-get install -y docker.io
+    apt-get install -y docker.io wget apt-transport-https gnupg && \
+    wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | apt-key add - && \
+    echo "deb https://aquasecurity.github.io/trivy-repo/deb stable main" > /etc/apt/sources.list.d/trivy.list && \
+    apt-get update && \
+    apt-get install -y trivy
 
-# Give full permission (simple + works)
-RUN chmod 666 /var/run/docker.sock || true
+RUN usermod -aG docker jenkins
 
-USER root
+USER jenkins
