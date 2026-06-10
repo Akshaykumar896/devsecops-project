@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DevSecOps Dashboard</title>
+</head>
+<body>
+
+<h1>DevSecOps Guard Dashboard</h1>
+
+<h2>Summary</h2>
+
+<p>Total Scans: {{ data.total_scans }}</p>
+
+<p>Critical Vulnerabilities: {{ data.critical }}</p>
+
+<p>High Vulnerabilities: {{ data.high }}</p>
+
+<p>Medium Vulnerabilities: {{ data.medium }}</p>
+
+<p>Low Vulnerabilities: {{ data.low }}</p>
+
+<p>Successful Deployments: {{ data.successful_deployments }}</p>
+
+<p>Blocked Deployments: {{ data.blocked_deployments }}</p>
+
+<p>Risk Level: {{ data.risk_level }}</p>
+<h2>Latest Build Status</h2>
+
+<ul>
+<li>Docker Build : SUCCESS</li>
+<li>Security Scan : FAILED</li>
+<li>Deployment : BLOCKED</li>
+</ul>
+
+</body>
+</html>

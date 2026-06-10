@@ -1,0 +1,10 @@
+{
+    "total_scans": 15,
+    "critical": 2,
+    "high": 4,
+    "medium": 7,
+    "low": 3,
+    "successful_deployments": 10,
+    "blocked_deployments": 5,
+    "risk_level": "HIGH"
+}
