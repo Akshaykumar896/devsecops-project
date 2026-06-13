@@ -32,7 +32,6 @@ pipeline {
 
     post {
 
-```
 success {
     sh '''
     mkdir -p reports
