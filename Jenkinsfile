@@ -32,34 +32,51 @@ pipeline {
 
     post {
 
-        success {
-            sh '''
-            mkdir -p reports
+```
+success {
+    sh '''
+    mkdir -p reports
 
-            cat > reports/scan-results.json << EOF
+    cat > reports/scan-results.json << EOF
+```
+
 {
-    "build_number": "${BUILD_NUMBER}",
-    "status": "SUCCESS",
-    "deployment": "DEPLOYED",
-    "critical": 0
+"build_number": "${BUILD_NUMBER}",
+"status": "SUCCESS",
+"deployment": "DEPLOYED",
+"critical": 0,
+"high": 0,
+"medium": 0,
+"low": 0,
+"risk_level": "LOW",
+"image_name": "devsecops-app",
+"scan_time": "$(date)"
 }
 EOF
-            '''
-        }
+'''
+}
 
-        failure {
-            sh '''
-            mkdir -p reports
+```
+failure {
+    sh '''
+    mkdir -p reports
 
-            cat > reports/scan-results.json << EOF
+    cat > reports/scan-results.json << EOF
+```
+
 {
-    "build_number": "${BUILD_NUMBER}",
-    "status": "FAILED",
-    "deployment": "BLOCKED",
-    "critical": 2
+"build_number": "${BUILD_NUMBER}",
+"status": "FAILED",
+"deployment": "BLOCKED",
+"critical": 2,
+"high": 0,
+"medium": 0,
+"low": 0,
+"risk_level": "HIGH",
+"image_name": "devsecops-app",
+"scan_time": "$(date)"
 }
 EOF
-            '''
-        }
-    }
+'''
+}
 }
