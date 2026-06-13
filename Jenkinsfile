@@ -32,13 +32,13 @@ pipeline {
 
  post {
 
-```
+
 success {
     sh '''
     mkdir -p reports
 
     cat > reports/scan-results.json << EOF
-```
+
 
 {
 "build_number": "${BUILD_NUMBER}",
@@ -56,13 +56,13 @@ EOF
 '''
 }
 
-```
+
 failure {
     sh '''
     mkdir -p reports
 
     cat > reports/scan-results.json << EOF
-```
+
 
 {
 "build_number": "${BUILD_NUMBER}",
@@ -78,5 +78,6 @@ failure {
 }
 EOF
 '''
+}
 }
 }
