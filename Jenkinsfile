@@ -30,8 +30,9 @@ pipeline {
         }
     }
 
-    post {
+ post {
 
+```
 success {
     sh '''
     mkdir -p reports
@@ -55,7 +56,7 @@ EOF
 '''
 }
 
-
+```
 failure {
     sh '''
     mkdir -p reports
