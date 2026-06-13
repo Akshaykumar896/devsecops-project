@@ -15,6 +15,7 @@ pipeline {
                 docker run --rm \
                 -v /var/run/docker.sock:/var/run/docker.sock \
                 aquasec/trivy image \
+                --timeout 15m \
                 --exit-code 1 \
                 --severity CRITICAL \
                 devsecops-app
